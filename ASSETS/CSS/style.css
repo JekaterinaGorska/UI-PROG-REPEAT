@@ -3,6 +3,152 @@ body{
     background-color: black;
 }
 
+/* Web API styling matching the theme */
+
+form[name="helloform"] {
+    margin: 20px; /* Adjust margin as needed */
+    padding: 20px; /* Adjust padding as needed */
+    background-color: black;
+    color: #e8e8e8;
+}
+
+form[name="helloform"] input {
+    font-size: 16px; /* Adjust font size as needed */
+    padding: 10px; /* Adjust padding as needed */
+    margin-bottom: 10px; /* Adjust margin as needed */
+    background-color: #e8e8e8;
+    color: black; /* Adjust text color as needed */
+    border: 2px solid #951212;
+    border-radius: 5px;
+}
+
+form[name="helloform"] input[type="submit"] {
+    /* Styling for the submit button */
+    cursor: pointer;
+    background-color: #951212;
+    color: #e8e8e8;
+    border: none;
+    border-radius: 5px;
+    padding: 10px; /* Adjust padding as needed */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+form[name="helloform"] input[type="submit"]:hover {
+    /* Styling for hover state of the submit button */
+    background-color: #b53131; /* Adjust hover background color as needed */
+}
+
+#modal {
+    /* Styling for the modal */
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    /* Styling for the modal content */
+    background-color: #e8e8e8;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #951212;
+    border-radius: 5px;
+    width: 50%; /* Adjust width as needed */
+}
+
+.close {
+    /* Styling for the modal close button */
+    color: #951212;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    /* Styling for hover and focus states of the close button */
+    color: #b53131; /* Adjust hover color as needed */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.saved-data-accept,
+.saved-data-refusal {
+    /* Styling for the modal buttons */
+    padding: 10px; /* Adjust padding as needed */
+    margin: 5px; /* Adjust margin as needed */
+    cursor: pointer;
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+.saved-data-accept {
+    /* Styling for the accept button */
+    background-color: #951212;
+    color: #e8e8e8;
+    border: none;
+    border-radius: 5px;
+}
+
+.saved-data-refusal {
+    /* Styling for the refusal button */
+    background-color: #e8e8e8;
+    color: #951212;
+    border: 1px solid #951212;
+    border-radius: 5px;
+}
+
+.saved-data-accept:hover {
+    /* Styling for hover state of the accept button */
+    background-color: #b53131; /* Adjust hover background color as needed */
+}
+
+.saved-data-refusal:hover {
+    /* Styling for hover state of the refusal button */
+    background-color: #d9d9d9; /* Adjust hover background color as needed */
+    color: #b53131; /* Adjust hover color as needed */
+}
+
+
+#customButton {
+    /* Add your styling for the custom button */
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #951212;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    cursor: pointer;
+    outline: none;
+}
+
+#customButton .button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--button_outline_color);
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+#customButton:hover .button_top {
+    transform: translateY(-0.33em);
+}
+
+#customButton:active .button_top {
+    transform: translateY(0);
+}
+
 h1{
     color: white;
     text-align: center;
@@ -21,5 +167,37 @@ canvas{
     max-height: 70vh;
     max-width: 100vw; 
 }
+
+#mainMenu {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dpad {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /*horrizontally*/
+    height: 100px; 
+    bottom: 10%;
+    left: 25%;
+    transform: translate(-50%, 50%); /*vertically*/
+}
+  
+  #dpad button {
+    width: 50px; 
+    height: 50px; 
+    background-color: #e8e8e8;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+
+
 
 
