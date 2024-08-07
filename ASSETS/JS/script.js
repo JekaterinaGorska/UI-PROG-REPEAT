@@ -28,6 +28,7 @@ console.log(backgroundImage);
         console.log("Start Game game");
         const playerName = playerNameInput.value.trim();
         var savedName = localStorage.getItem('playerName');
+        gameStarted = true;
     
         if (!savedName) {
             // Player has not visited before
@@ -77,9 +78,11 @@ console.log(backgroundImage);
 
     customButton.addEventListener('click', startGame);
     setupMainMenu();
-    
+
+
     
     function gameLoop() {
+        console.log(gameStarted);
         if(gameStarted){
             drawBackground();
             moveBackground();
