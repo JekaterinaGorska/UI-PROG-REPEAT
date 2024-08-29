@@ -3,44 +3,41 @@ body{
     background-color: black;
 }
 
-/* Web API styling matching the theme */
+/* Web API styling */
 
 form[name="helloform"] {
-    margin: 20px; /* Adjust margin as needed */
-    padding: 20px; /* Adjust padding as needed */
+    margin: 20px; 
+    padding: 20px; 
     background-color: black;
     color: #e8e8e8;
 }
 
 form[name="helloform"] input {
-    font-size: 16px; /* Adjust font size as needed */
-    padding: 10px; /* Adjust padding as needed */
-    margin-bottom: 10px; /* Adjust margin as needed */
+    font-size: 16px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
     background-color: #e8e8e8;
-    color: black; /* Adjust text color as needed */
+    color: black; 
     border: 2px solid #951212;
     border-radius: 5px;
 }
 
 form[name="helloform"] input[type="submit"] {
-    /* Styling for the submit button */
     cursor: pointer;
     background-color: #951212;
     color: #e8e8e8;
     border: none;
     border-radius: 5px;
-    padding: 10px; /* Adjust padding as needed */
-    font-size: 16px; /* Adjust font size as needed */
+    padding: 10px; 
+    font-size: 16px; 
 }
 
 form[name="helloform"] input[type="submit"]:hover {
-    /* Styling for hover state of the submit button */
-    background-color: #b53131; /* Adjust hover background color as needed */
+    background-color: #b53131; 
 }
 
 #modal {
-    /* Styling for the modal */
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
     z-index: 1;
     left: 0;
@@ -53,17 +50,15 @@ form[name="helloform"] input[type="submit"]:hover {
 }
 
 .modal-content {
-    /* Styling for the modal content */
     background-color: #e8e8e8;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #951212;
     border-radius: 5px;
-    width: 50%; /* Adjust width as needed */
+    width: 50%; 
 }
 
 .close {
-    /* Styling for the modal close button */
     color: #951212;
     float: right;
     font-size: 28px;
@@ -72,23 +67,20 @@ form[name="helloform"] input[type="submit"]:hover {
 
 .close:hover,
 .close:focus {
-    /* Styling for hover and focus states of the close button */
-    color: #b53131; /* Adjust hover color as needed */
+    color: #b53131;
     text-decoration: none;
     cursor: pointer;
 }
 
 .saved-data-accept,
 .saved-data-refusal {
-    /* Styling for the modal buttons */
-    padding: 10px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin as needed */
+    padding: 10px; 
+    margin: 5px; 
     cursor: pointer;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px; 
 }
 
 .saved-data-accept {
-    /* Styling for the accept button */
     background-color: #951212;
     color: #e8e8e8;
     border: none;
@@ -96,7 +88,6 @@ form[name="helloform"] input[type="submit"]:hover {
 }
 
 .saved-data-refusal {
-    /* Styling for the refusal button */
     background-color: #e8e8e8;
     color: #951212;
     border: 1px solid #951212;
@@ -104,19 +95,16 @@ form[name="helloform"] input[type="submit"]:hover {
 }
 
 .saved-data-accept:hover {
-    /* Styling for hover state of the accept button */
-    background-color: #b53131; /* Adjust hover background color as needed */
+    background-color: #b53131; 
 }
 
 .saved-data-refusal:hover {
-    /* Styling for hover state of the refusal button */
-    background-color: #d9d9d9; /* Adjust hover background color as needed */
-    color: #b53131; /* Adjust hover color as needed */
+    background-color: #d9d9d9; 
+    color: #b53131; 
 }
 
 
 #customButton {
-    /* Add your styling for the custom button */
     --button_radius: 0.75em;
     --button_color: #e8e8e8;
     --button_outline_color: #951212;
@@ -180,7 +168,7 @@ canvas{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center; /*horrizontally*/
+    align-items: center; 
     height: 100px; 
     bottom: 10%;
     left: 25%;
