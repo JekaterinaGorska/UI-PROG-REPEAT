@@ -15,4 +15,5 @@ Health bar, magic meter, rescue counter
 WASD keys for movement and mouse input for attacks. Collsion detection with enemies and traps.
 
 ## Credits
-Jekaterina Gorska 
+Jekaterina Gorska.
+All art goes to rightful owners.
