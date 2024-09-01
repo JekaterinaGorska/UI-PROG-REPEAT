@@ -48,6 +48,65 @@
     }
 }
 
+    class Enemy {
+
+        constructor(x,y,spriteSheet){
+            this.x = x;
+            this.y = y;
+            this.spriteSheet = spriteSheet;
+            this.speed = 0.5;
+
+            this.frameIndex = 0;
+            this.totalFrames = 5;
+            this.frameWidth = 400 / this.totalFrames;
+            this.frameHeight = 76;
+            this.animationSpeed = 20;
+            this.frameCounter = 0;
+            this.verticalDirection = 'down';
+            this.verticalBoundTop = y;
+            this.verticalBoundBottom = Math.min(canvas.height - this.frameHeight, y + 200); 
+        }
+    update() {
+        this.frameCounter++;
+        if (this.frameCounter >= this.animationSpeed) {
+            this.frameCounter = 0;
+            this.frameIndex = (this.frameIndex + 1) % this.totalFrames;
+        }
+
+        if (this.verticalDirection === 'up') {
+            this.y -= this.speed;
+            if (this.y <= this.verticalBoundTop) {
+                this.y = this.verticalBoundTop;
+                this.verticalDirection = 'down'; // Change direction when hitting top bound
+            }
+        } else if (this.verticalDirection === 'down') {
+            this.y += this.speed;
+            if (this.y >= this.verticalBoundBottom) {
+                this.y = this.verticalBoundBottom;
+                this.verticalDirection = 'up'; // Change direction when hitting bottom bound
+            }
+
+        this.y = Math.max(this.verticalBoundTop, Math.min(this.y, this.verticalBoundBottom));
+    }
+}
+    
+
+
+    draw(ctx) {
+        const sourceX = this.frameIndex * this.frameWidth;
+        const scaleFactor = 2.0;
+
+        ctx.drawImage(
+            this.spriteSheet,
+            sourceX, 0,
+            this.frameWidth, this.frameHeight,
+            this.x, this.y,
+            this.frameWidth * scaleFactor, this.frameHeight * scaleFactor
+        );
+    }
+}
+
+
     class Player{
     
         constructor(x,y,spriteSheet){
@@ -79,6 +138,7 @@
             window.addEventListener('keyup', this.handleKeyUp);
             //window.addEventListener('click', this.shoot);
         }
+
         shoot(){
             const projectileX = this.x + this.frameWidth / 2; 
             const projectileY = this.y; 
@@ -143,18 +203,29 @@
             this.y += this.vy;
             //this.pushBack();
 
-            if (this.vx !== 0 || this.vy !== 0) { 
+             // Collision detection to prevent player from moving past the borders
+            if (this.x < 0) {
+                this.x = 0;
+            } else if (this.x + this.frameWidth * 2 > canvas.width) { // multiplied by 2 due to the scaling factor
+                this.x = canvas.width - this.frameWidth * 2;
+            }
+
+            if (this.y < 0) {
+                this.y = 0;
+            } else if (this.y + this.frameHeight * 2 > canvas.height) { // multiplied by 2 due to the scaling factor
+                this.y = canvas.height - this.frameHeight * 2;
+            }
+
+            if (this.vx !== 0 || this.vy !== 0) {
                 this.frameCounter++;
                 if (this.frameCounter >= this.animationSpeed) {
                     this.frameCounter = 0;
                     this.frameIndex = (this.frameIndex + 1) % this.totalFrames;
                 }
             } else {
-                this.frameIndex = 0; 
+                this.frameIndex = 0;
             }
     
-
-
             if(this.x < 0){
                 this.x = 0;
             }else if (this.x + this.spriteSheet.width > canvas.width){
@@ -171,10 +242,6 @@
             });
             this.projectiles = this.projectiles.filter(projectile => !projectile.markForDeletion);
         }
-
-        // pushBack(){
-        //     this.x -= 0.5;
-        // }
     
         draw(ctx){
             const sourceX = this.frameIndex * this.frameWidth;
@@ -191,7 +258,7 @@
         }
     }
     
-    //background
+    
     const backgroundImage = new Image();
     backgroundImage.src = 'ASSETS/IMG/background.jpeg';
     
@@ -201,10 +268,14 @@
     const projectileSpritesheet = new Image();
     projectileSpritesheet.src = 'ASSETS/IMG/projectile.png';
 
+    const enemyImage = new Image();
+    enemyImage.src = 'ASSETS/IMG/knight-enemy.png';
+
 
 
     const player = new Player(0, 0, playerImage);
- 
+    const enemy = new Enemy(canvas.width - 750, canvas.height / 9 - 76 / 2, enemyImage);
+
     let gameStarted = false;
     let firstStart = true;
     let backgroundPosition = 0;
@@ -280,8 +351,8 @@
             drawBackground();
             moveBackground();
             player.update()
-            //update();
-            //draw();
+            enemy.update();
+            
         }
         window.requestAnimationFrame(gameLoop);
     }
@@ -319,6 +390,7 @@
         ctx.drawImage(backgroundImage, backgroundPosition + 2 * backgroundImage.width, 0);
 
         player.draw(ctx);
+        enemy.draw(ctx);
     }
 
     function input(event){
