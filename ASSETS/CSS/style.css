@@ -186,6 +186,44 @@ canvas{
 }
 
 
+#gameOverMessage {
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    z-index: 2; 
+    pointer-events: none; 
+}
+
+#startOverButton {
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #951212;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    cursor: pointer;
+    outline: none;
+    padding: 0.75em 1.5em;
+    color: var(--button_color);
+}
+
+#startOverButton:hover {
+    background-color: #b53131; 
+}
+
+#startOverButton:active {
+    transform: translateY(0);
+}
+
+
 
 
 
